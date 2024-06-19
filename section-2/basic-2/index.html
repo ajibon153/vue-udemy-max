@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Vue Events</h1>
+        </header>
+        <section id="events">
+            <h2>Events in Action</h2>
+            <!-- <button v-on:click="counter++">Add</button>
+      <button v-on:click="counter--">Remove</button> -->
+            <button @click="addCounter()">Add</button>
+            <button @click="reduceCounter">Remove</button>
+            <!-- <p v-once>Startnig Counter: {{ counter }}</p> -->
+            <p>Result: {{ counter }}</p>
+            <!-- v-on:keyup.enter="confirmInput($event, 'Fauji')" -->
+            <!-- <input type="text" :value="name" v-on:input="setName($event)" /> -->
+            <input type="text" v-model="name" />
+            <button @click="resetInput">Reset Input</button>
+            <p>Your Name : {{ name }}</p>
+            <form v-on:submit.prevent="submitForm" action="">
+                <input type="text" />
+                <button>Sign ip</button>
+            </form>
+        </section>
+    </body>
+</html>
