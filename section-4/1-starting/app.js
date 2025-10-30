@@ -4,6 +4,7 @@ function getRandomValue(max, min) {
 
 Vue.createApp({
     data() {
+        // useState
         return {
             playerHealth: 100,
             monsterHealth: 100,
@@ -13,6 +14,7 @@ Vue.createApp({
         }
     },
     computed: {
+        // useMemo ?? reupdate component when a change
         monsterHealthBar() {
             if (this.monsterHealth <= 0) return { width: "0%" }
             return { width: this.monsterHealth + "%" }
@@ -26,6 +28,8 @@ Vue.createApp({
         }
     },
     watch: {
+        // useEffect
+
         battleLog(value) {
             console.log("value", value)
         },
@@ -52,6 +56,7 @@ Vue.createApp({
         }
     },
     methods: {
+        // function handlers
         attackMonster() {
             const attackValue = getRandomValue(12, 5)
             this.monsterHealth -= attackValue
@@ -81,8 +86,7 @@ Vue.createApp({
             this.playerHealth = 100
             this.monsterHealth = 100
             this.currentRound = 0
-            this.winner = null,
-            this.battleLog = []
+            ;(this.winner = null), (this.battleLog = [])
         },
         surrender() {
             this.winner = "monster"
